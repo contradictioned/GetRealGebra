@@ -1,0 +1,83 @@
+start
+ = relation
+
+relation
+ = baseRelation
+ / selection
+ / projection
+ / relation_renaming
+ / column_renaming
+ / cross
+ / join
+ / union
+ / intersection
+ / setminus
+
+baseRelation
+ = name:relationName { return new BaseRelation(name) }
+
+relationName
+ = chars:[a-zA-Z_]+ { return chars.join("") }
+
+attrName
+ = rel:relationName '.' chars:[a-zA-Z_]+ { return rel + '.' + chars.join("") }
+ / chars:[a-zA-Z_]+ { return chars.join("") }
+
+
+/* Selection */
+
+selection
+ = '\\sigma['pred:predicate']('rel:relation')' { return new Selection(pred, rel) }
+predicate
+ = fst:predicateEl [ ]* p:predicateOp [ ]* snd:predicateEl { return Function("tuple", "return " + fst + p + snd) }
+predicateOp
+ = ('==' / '!=' / '<=' / '>=' / '<' / '>')
+predicateEl
+ = a:attrName { return "tuple.get('"+ a +"')"; } /* An attribute */
+ / "\""a:[^"]+"\"" { return "\"" + a.join("") + "\""; } /* A constant string */
+ / digits:[0-9]+ { return parseInt(digits.join(""), 10); }
+
+
+/* Projection */
+
+projection
+ = '\\pi['atts:attrList']('rel:relation')' { return new Projection(atts, rel) }
+attrList
+ = fst:attrName ',' snd:attrList { return [fst].concat(snd) }
+ / fst:attrName  { return [fst] }
+
+
+/* Renaming */
+
+relation_renaming
+ = '\\rho[' ren:relationName '](' rel:relation ')' { return new RelationRenaming(ren, rel) }
+
+column_renaming
+ = '\\rho[' ren:renameOps '](' rel:relation ')' { return new ColumnRenaming(ren, rel) }
+
+renameOps
+ = op:renameOp [ ]* ',' [ ]* ops:renameOps { return [op].concat(ops) }
+ / op:renameOp               { return [op] }
+
+renameOp
+ = fst:attrName [ ]* '<-' [ ]* snd:attrName { return {newname: fst, oldname: snd} }
+ / relationName
+
+
+/* Cross product */
+
+cross
+ = '(' fst:relation ')' [ ]* '\\times' [ ]* '(' snd:relation ')' { return new Cross(fst, snd) }
+
+join
+ = '(' fst:relation ')' [ ]* '\\join' [ ]* '[' pred:predicate '](' snd:relation ')' { return new ThetaJoin(fst, snd, pred) }
+ / '(' fst:relation ')' [ ]* '\\join' [ ]* '(' snd:relation ')' { return new NaturalJoin(fst, snd) }
+
+union
+ = '(' fst:relation ')' [ ]* '\\cup' [ ]* '(' snd:relation ')' { return new Union(fst, snd) }
+
+intersection
+ = '(' fst:relation ')' [ ]* '\\cap' [ ]* '(' snd:relation ')' { return new Intersection(fst, snd) }
+
+setminus
+ = '(' fst:relation ')' [ ]* '-' [ ]* '(' snd:relation ')' { return new Setminus1(fst, snd) }

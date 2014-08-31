@@ -1,0 +1,75 @@
+doctype html
+html
+  head
+    title GetRealGebra
+    meta(charset="utf-8")
+    script(src='/js/script.min.js')
+    //link(rel="stylesheet", type="text/css", href="css/style.css")
+
+  body
+    main
+      article
+        section
+          h1 BaseRelation
+          p
+            | Here we have an example Relation.
+            strong DONE
+            | projektion, selektion, umbenennung, kreuzprodukt, naturaljoin, vereinigung, schnitt, differenz, theta-join
+            strong TODO
+            | division
+
+          table.relation
+            caption Rela
+            thead
+              tr
+                th a
+                th b
+                th c
+            tbody
+              tr
+                td Foo
+                td Que
+                td 3
+              tr 
+                td Bar
+                td Si
+                td 7
+              tr
+                td Bar
+                td No
+                td 8
+          table.relation
+            caption Relb
+            thead
+              tr
+                th c
+                th d
+            tbody
+              tr
+                td 3
+                td Hallo
+              tr 
+                td 5
+                td Spencer
+
+          h2 Queries go here
+          input#input
+          p#error_output
+          ul#examples
+            //li Rela
+            //li Relb
+            //li \pi[a,b](Rela)
+            //li \pi[a](Rela)
+            //li \sigma[c > 5](Rela)
+            //li \sigma[Seitenzahl < 500](Relb)
+            //li Rela) \times (Relb)
+            //li (\pi[a](Rela)) \times (Relb)
+            //li (Rela) \join (Relb)
+            //li \rho[lol <- b](Rela)
+            //li \rho[Wurst](Rela)
+            //li (\sigma[c == 3](Rela)) \cup (\sigma[c == 7](Rela))
+            li (\sigma[c > 3](Rela)) \cap (\sigma[c < 8](Rela))
+            li (Rela) - (\sigma[c == 7](Rela))
+            li (Rela) \join[Rela.c==3](Relb)
+        section#result_output
+          h3 Ergebnis
