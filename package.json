@@ -1,6 +1,6 @@
 {
   "name": "GetRealGebra",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "GetRealGebra -- Understand Relational Algebra in the Browser",
   "devDependencies": {
     "grunt": "^0.4.5",

@@ -25,6 +25,7 @@ module.exports = function(grunt) {
       }, 
       dist: {
         files: {
+          'dist/js/getreal.min.js': ['scripts/lib/*.js'],
           'dist/js/script.min.js': ['scripts/*.js']
         }
       }

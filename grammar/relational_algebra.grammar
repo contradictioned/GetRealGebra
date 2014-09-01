@@ -43,7 +43,7 @@ predicateEl
 projection
  = '\\pi['atts:attrList']('rel:relation')' { return new Projection(atts, rel) }
 attrList
- = fst:attrName ',' snd:attrList { return [fst].concat(snd) }
+ = fst:attrName [ ]* ',' [ ]* snd:attrList { return [fst].concat(snd) }
  / fst:attrName  { return [fst] }
 
 
@@ -70,7 +70,7 @@ cross
  = '(' fst:relation ')' [ ]* '\\times' [ ]* '(' snd:relation ')' { return new Cross(fst, snd) }
 
 join
- = '(' fst:relation ')' [ ]* '\\join' [ ]* '[' pred:predicate '](' snd:relation ')' { return new ThetaJoin(fst, snd, pred) }
+ = '(' fst:relation ')' [ ]* '\\join' [ ]* '[' pred:predicate ']' [ ]* '(' snd:relation ')' { return new ThetaJoin(fst, snd, pred) }
  / '(' fst:relation ')' [ ]* '\\join' [ ]* '(' snd:relation ')' { return new NaturalJoin(fst, snd) }
 
 union

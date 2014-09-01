@@ -26,7 +26,7 @@ function fillTableHeader(table, attrs) {
   thead.appendChild(tr);
   for(var i = 0; i < attrs.length; i++) {
     var th = document.createElement('th');
-    th.innerHTML = attrs[i];
+    th.innerHTML = attrToString(attrs[i]);
     tr.appendChild(th)
   }
   table.appendChild(thead);
@@ -43,4 +43,11 @@ function createRow(tuple, attrs) {
     tr.appendChild(td)
   }
   return tr
+}
+
+function attrToString(x) {
+  if(x[0] === undefined) {
+    return x[1];
+  }
+  return x[0] + '.' + x[1];
 }

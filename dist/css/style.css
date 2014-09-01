@@ -1,0 +1,126 @@
+@charset "UTF-8";
+header {
+  width: auto;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #9a9368;
+  border-left: 1px solid #fff757;
+  border-right: 1px solid #fff757; }
+  header h1 sup {
+    color: red;
+    font-size: 18px; }
+
+#query_area {
+  text-align: center;
+  padding: 50px 10px 50px 10px;
+  background-color: #e3f1c6;
+  border-left: 3px solid #fff757;
+  border-right: 3px solid #fff757; }
+  #query_area #input {
+    width: 400px;
+    border: 1px solid #ff9900;
+    padding: 3px 3px 3px 3px;
+    font-size: 16px; }
+  #query_area #error_output {
+    background-color: #120231;
+    color: red;
+    padding: 10px; }
+    #query_area #error_output.no_error {
+      display: none; }
+
+#quicktips {
+  text-align: left;
+  color: #fff757;
+  padding: 50px;
+  background-color: #372b28;
+  border-left: 3px solid #fff757;
+  border-right: 3px solid #fff757; }
+
+footer {
+  width: auto;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #9a9368;
+  border-left: 1px solid #fff757;
+  border-right: 1px solid #fff757; }
+
+.relation_digest {
+  background-color: #e3f1c6;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap; }
+  .relation_digest:before {
+    content: "Verfügbare Relationen";
+    font-weight: bold; }
+  .relation_digest ul {
+    display: block;
+    list-style-type: none;
+    margin: 4px;
+    padding-left: 0px; }
+    .relation_digest ul li {
+      display: inline-block;
+      padding: 3px;
+      border-top: 1px solid black;
+      border-bottom: 1px solid black;
+      border-left: 1px solid black; }
+      .relation_digest ul li strong {
+        line-height: 18px; }
+    .relation_digest ul li:first-child {
+      background-color: #fff757;
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px; }
+    .relation_digest ul li:last-child {
+      border-right: 1px solid black;
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px; }
+
+table.relation {
+  color: black;
+  border-collapse: collapse;
+  border: 1px solid #213409;
+  width: 100%;
+  box-shadow: 1px 1px 5px #213409;
+  background-color: #e3f1c6; }
+  table.relation caption {
+    font-weight: bolder;
+    font-style: italic;
+    text-decoration: underline;
+    background-color: #ffae0a;
+    border: 1px solid #213409; }
+  table.relation thead {
+    font-weight: bold;
+    background-color: #fff757; }
+  table.relation td {
+    padding: 0.3em;
+    border: 1px solid #213409; }
+  table.relation tr {
+    border: 1px solid #213409; }
+
+* {
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif; }
+
+body {
+  margin: 0 auto;
+  padding: 0;
+  background: black url("/img/use_your_illusion.png"); }
+  body main {
+    width: auto;
+    max-width: 1000px;
+    margin: 0 auto; }
+
+.hidden {
+  display: none; }
+
+code {
+  background: #311212;
+  padding: 4px;
+  color: #e3f1c6;
+  border: 1px solid #ffae0a;
+  border-left: 4px solid #ffae0a;
+  margin-right: 10px;
+  display: inline-block;
+  font-family: "Lucida Console", Monaco, monospace;
+  cursor: pointer; }

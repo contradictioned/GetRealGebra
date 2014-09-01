@@ -1,0 +1,65 @@
+section#quicktips
+  h1 Relationenalgebra
+  p
+    | Benutze diese Seite, um Relationenalgebra zu üben. Weiter unten findest du Beispiele,
+    | um in die verwendete Syntax zu kommen. Da die Wenigsten griechische Buchstaben
+    | oder Ähnliches auf der Tastatur haben, lehnt sich die Syntax an LaTeX an.
+  p(style="border: 2px dotted red")
+    strong Beta-Disclaimer: 
+    | Eventuell sind noch ein paar Dinge ungeschmeidig und die Division fehlt noch komplett.
+    | Die implementierten Features sind jedoch ausführlich getestet und sollten korret sein.
+    em Falls doch ein Fehler zu finden ist, geb bitte bescheid.
+
+  h2 Operatoren
+  p
+    strong Relation: 
+    | Auch nur das Hinschreiben einer Relation ist eine grundlegende Operation.
+    br
+    code Buch
+  p
+    strong Selektion: 
+    | Die Selektion wählt Tuplel, die das gegebene Prädikat erfüllen aus einer Relation aus.
+    br
+    code \sigma[Seitenzahl < 500](Buch)
+  p 
+    strong Projektion: 
+    | Die Projektion lässt nur noch gegebene Spalten aus einer Relation übrig.
+    br
+    code \pi[ISBN, Standort](Exemplar)
+  p
+    strong Umbenennung: 
+    | Es können sowohl Spalten als auch ganze Relationen umbenannt werden. Um Spalten umzubenennen:
+    br
+    code \rho[id <- LSNR](Leser)
+    br
+    | Für ganze Namen schreibt man
+    br
+    code \rho[Kunde](Leser)
+  p
+    strong Kreuzprodukt: 
+    | Das Kreuzprodukt zweier Relationen verknüpft zwei Relationen.
+    | Dabei wird jedes Tupel der einen Relation mit jedem Tupel der anderen Relation fusioniert.
+    br
+    code (Buch) \times (Verlag)
+  p
+    strong Join:
+    | Es gibt entweder den natürlichen Join, bei dem die Tupel zweier Relationen verbunden werden, sobald
+    | alle gleichnamigen Attribute die gleichen Werte beinhalten.
+    br
+    code (Buch) \join (Verlag)
+    br
+    | Oder der &theta;-Join, der als eine Kombination von Kreuzprodukt und Selektion interpretiert werden kann.
+    br
+    code (Leser) \join[Wohnort==Verlagsort] (Verlag)
+  p
+    strong Mengenoperationen: 
+    | Vereinigung, Schnitt und Differenz der Relationen A und B können wie folgt ausgedrückt werden:
+    br
+    code A \cup B 
+    code A \cap B 
+    code A - B 
+
+  h2 Beispiele
+  p Die Namen der Leser, die Bücher ausgeliehen haben, deren Seitenzahl kleiner als 500 ist:
+    br
+    code \pi[Vorname, Name]((Leser)\join((Ausleihe)\join(\sigma[Seitenzahl < 500](Buch))))
