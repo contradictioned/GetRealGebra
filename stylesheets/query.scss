@@ -1,0 +1,26 @@
+#query_area {
+  text-align: center;
+  padding: 50px 10px 50px 10px;
+
+  background-color: $light_grey;
+  border-left: 3px solid $yellow;
+  border-right: 3px solid $yellow;
+
+  // the query field
+  #input {
+    width: 400px;
+    border: 1px solid #ff9900;
+    padding: 3px 3px 3px 3px;
+    font-size: 16px;
+  }
+
+  #error_output {
+    background-color: #120231;
+    color: red;
+    padding: 10px;
+
+    &.no_error {
+      display: none;
+    }
+  }
+}

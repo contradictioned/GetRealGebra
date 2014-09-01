@@ -1,0 +1,75 @@
+$darker-green: #466c14;
+$dark-green: #2a410c;
+$ligth: #d3f0ad;
+$border-color: #213409;
+
+.relation_digest {
+  background-color: $light_grey;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+
+  &:before {
+    content: "Verfügbare Relationen";
+    font-weight: bold;
+  }
+
+  ul {
+    display: block;
+    list-style-type: none;
+    margin: 4px;
+    padding-left: 0px;
+
+    li {
+      display: inline-block;
+      padding:3px;
+      border-top: 1px solid black;
+      border-bottom: 1px solid black;
+      border-left: 1px solid black;
+
+      strong {
+        line-height: 18px;
+      }
+    }
+    li:first-child {
+      background-color: $yellow;
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px;
+    }
+    li:last-child {
+      border-right: 1px solid black;
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+    }
+  }
+}
+
+table.relation {
+  color: black;
+  border-collapse: collapse;
+  border: 1px solid $border-color;
+  width: 100%;
+  box-shadow: 1px 1px 5px #213409;
+  background-color: $light_grey;
+  
+  caption {
+    font-weight: bolder;
+    font-style: italic;
+    text-decoration: underline;
+    background-color: $orange;
+    border: 1px solid $border-color;
+  }
+
+  thead {
+    font-weight: bold;
+    background-color: $yellow;
+  }
+
+  td {
+    padding: 0.3em;
+    border: 1px solid $border-color;
+  }
+  tr {
+    border: 1px solid $border-color;
+  }
+}

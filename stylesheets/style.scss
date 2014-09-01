@@ -1,0 +1,48 @@
+// palette definition
+$dark_grey: #372B28;
+$mid_grey: #9A9368;
+$orange: #FFAE0A;
+$yellow: #FFF757;
+$light_grey: #E3F1C6;
+
+@import 'header';
+@import 'query';
+@import 'quicktips';
+@import 'footer';
+
+@import 'relation';
+
+* {
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+body {
+  margin: 0 auto;
+  padding: 0;
+
+  // Much thanks to http://subtlepatterns.com/use-your-illusion/
+  background: black url("/img/use_your_illusion.png");
+  
+  main {
+    width: auto;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+code {
+  background: #311212;
+  padding: 4px;
+  color: $light_grey;
+  border: 1px solid $orange;
+  border-left: 4px solid $orange;
+  margin-right: 10px;
+  display: inline-block;
+  font-family: "Lucida Console", Monaco, monospace;
+  cursor: pointer;
+}
