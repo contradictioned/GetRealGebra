@@ -70,7 +70,7 @@ BaseRelation.prototype.findTable = function(tablename) {
   var tables = document.getElementsByClassName('relation');
   for(var i = 0; i < tables.length; i++) {
     var tcaption = tables[i].getElementsByTagName('caption')[0];
-    if(tcaption.innerText.indexOf(tablename) === 0) {
+    if(tcaption.innerHTML.indexOf(tablename) === 0) {
       return tables[i];
     }
   }
